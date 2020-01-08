@@ -11,4 +11,15 @@ export default class DelegatesService {
       throw new Error(e.message);
     }
   }
+
+  public async getDelegate(username: string) {
+    const endpoint = `${this.apiUrl}/delegates/${username}`;
+    try {
+      const response = await fetch(endpoint);
+      const json = await response.json();
+      return json;
+    } catch (e) {
+      throw new Error(e.message);
+    }
+  }
 }

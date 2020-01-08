@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/delegate-details/${address}`">
+  <router-link :to="`/delegate-details/${username}`">
     <div
       class="wallet flex flex-row p-2 border rounded hover:bg-gray-100 cursor-pointer m-2 shadow"
       title="Click to see details of this delegate"
