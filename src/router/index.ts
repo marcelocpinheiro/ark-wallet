@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import HomeView from "../views/Home.vue";
 import WalletsView from "@/views/Wallets.vue";
 import WalletDetailsView from "@/views/WalletDetails.vue";
+import DelegatesView from "@/views/Delegates.vue";
 
 Vue.use(VueRouter);
 
@@ -26,6 +27,11 @@ const routes = [
     path: "/wallet-details/:address",
     name: "wallet-details",
     component: WalletDetailsView
+  },
+  {
+    path: "/delegates",
+    name: "delegates",
+    component: DelegatesView
   }
 ];
 

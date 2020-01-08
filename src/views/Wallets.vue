@@ -49,7 +49,7 @@
 <script lang="ts">
 import Vue from "vue";
 import Container from "@/components/common/Container.vue";
-import Loading from "@/components/loading/Loading.vue";
+import Loading from "@/components/common/Loading.vue";
 import { Component, Watch } from "vue-property-decorator";
 import WalletsService from "@/services/wallets.service";
 import WalletCard from "@/components/wallet/WalletCard.vue";
