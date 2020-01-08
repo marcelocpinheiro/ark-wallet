@@ -29,7 +29,7 @@ import Vue from "vue";
 import Container from "@/components/common/Container.vue";
 import Loading from "@/components/common/Loading.vue";
 import Pagination from "@/components/common/Pagination.vue";
-import { Component, Watch } from "vue-property-decorator";
+import { Component } from "vue-property-decorator";
 import DelegatesService from "@/services/delegates.service";
 import DelegatesCard from "@/components/delegates/DelegatesCard.vue";
 

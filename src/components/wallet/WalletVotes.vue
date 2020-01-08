@@ -3,16 +3,16 @@
     <h3 class="text-lg font-bold border-b my-3">
       Wallet's Votes <font-awesome-icon icon="thumbs-up" />
     </h3>
-    <div
-      class="votes-card rounded border shadow p-3 my-2 flex flex-col cursor-pointer"
+
+    <VotesCard
       v-for="vote in votes"
       :key="vote.id"
-    >
-      <div class="id-container">
-        <span class="font-bold">ID:</span> {{ vote.id }}
-      </div>
-    </div>
+      :voteId="vote.id"
+      :voteAsset="vote.asset"
+    ></VotesCard>
+
     <Pagination
+      v-if="metadata.pageCount > 1"
       :numberOfPages="metadata.pageCount"
       :activePage="activePage"
       @page-click="handleClick"
@@ -27,10 +27,12 @@ import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 import Pagination from "../common/Pagination.vue";
 import WalletsService from "@/services/wallets.service";
+import VotesCard from "@/components/votes/VotesCard.vue";
 
 @Component({
   components: {
-    Pagination
+    Pagination,
+    VotesCard
   }
 })
 export default class WalletVotes extends Vue {

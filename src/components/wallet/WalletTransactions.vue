@@ -5,8 +5,9 @@
     </h3>
     <div
       class="transaction-card rounded border shadow p-3 my-2 flex flex-col cursor-pointer"
-      v-for="transaction in transactions"
+      v-for="(transaction, index) in transactions"
       :key="transaction.id"
+      @click="showTransactionDetails(index)"
     >
       <div class="id-container">
         <span class="font-bold">ID:</span> {{ transaction.id }}
@@ -75,6 +76,29 @@ export default class WalletTransactions extends Vue {
       this.transactions = ret.data;
       this.activePage = parseInt(data);
     }
+  }
+
+  showTransactionDetails(index) {
+    const t = this.transactions[index];
+    const date = new Date(t.timestamp.unix * 1000);
+    const formatteddate = `${date.getDate()}/${date.getMonth() +
+      1}/${date.getFullYear()} ${
+      t.timestamp.human.split("T")[1].split(".")[0]
+    }`;
+    this.$swal({
+      title: "Transaction Details",
+      width: 700,
+      html: `
+        <p class="text-left mb-2 border-b"><span class="font-bold">ID:</span> ${t.id}</p>
+        <p class="text-left mb-2 border-b"><span class="font-bold">Block ID:</span> ${t.blockId}</p>
+        <p class="text-left mb-2 border-b"><span class="font-bold">Amount:</span> ${t.amount}</p>
+        <p class="text-left mb-2 border-b"><span class="font-bold">Fee:</span> ${t.fee}</p>
+        <p class="text-left mb-2 border-b"><span class="font-bold">Sender Address:</span> ${t.sender}</p>
+        <p class="text-left mb-2 border-b"><span class="font-bold">Recipient Address:</span> ${t.recipient}</p>
+        <p class="text-left mb-2 border-b"><span class="font-bold">Signature:</span> ${t.signature}</p>
+        <p class="text-left mb-2 border-b"><span class="font-bold">Date and time:</span> ${formatteddate}</p>
+      `
+    });
   }
 }
 </script>
