@@ -10,6 +10,7 @@
       >
       </WalletCard>
       <WalletTransactions :wallet="wallet"></WalletTransactions>
+      <WalletVotes :wallet="wallet"></WalletVotes>
     </Container>
   </div>
 </template>
@@ -21,12 +22,14 @@ import Container from "@/components/common/Container.vue";
 import WalletService from "@/services/wallets.service";
 import WalletCard from "@/components/wallet/WalletCard.vue";
 import WalletTransactions from "@/components/wallet/WalletTransactions.vue";
+import WalletVotes from "@/components/wallet/WalletVotes.vue";
 
 @Component({
   components: {
     Container,
     WalletCard,
-    WalletTransactions
+    WalletTransactions,
+    WalletVotes
   }
 })
 export default class WalletDetailsView extends Vue {
