@@ -6,6 +6,7 @@
     <div class="items-container flex flex-row">
       <NavbarItem :label="'Home'" :route="'/'"></NavbarItem>
       <NavbarItem :label="'Wallets'" :route="'/wallets'"></NavbarItem>
+      <NavbarItem :label="'Delegates'" :route="'/delegates'"></NavbarItem>
       <NavbarItem :label="'About'" :route="'/about'"></NavbarItem>
     </div>
   </div>

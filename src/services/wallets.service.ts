@@ -39,6 +39,21 @@ export default class WalletsService {
     }
   }
 
+  public async getWalletVotes(
+    key: string,
+    limit: Number = 5,
+    page: Number = 1
+  ) {
+    const endpoint = `${this.apiUrl}/wallets/${key}/votes?limit=${limit}&page=${page}`;
+    try {
+      const response = await fetch(endpoint);
+      const json = await response.json();
+      return json;
+    } catch (e) {
+      throw new Error(e.message);
+    }
+  }
+
   public getAllLocalWallets(): Array<any> {
     return this.walletsArray;
   }
