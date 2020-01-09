@@ -1,5 +1,5 @@
 <template>
-  <div class="wallet-details h-screen content-center flex justify-center">
+  <div class="wallet-details h-full content-center flex justify-center">
     <Container :flexDirection="'col'">
       <h3 class="text-lg font-bold border-b">Wallet's details</h3>
       <WalletCard

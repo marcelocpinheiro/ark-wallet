@@ -1,5 +1,5 @@
 <template>
-  <div class="delegate-details h-screen content-center flex justify-center">
+  <div class="delegate-details h-full content-center flex justify-center">
     <Container :flexDirection="'col'">
       <h3 class="font-bold text-lg border-b">Delegate Details</h3>
       <DelegatesCard

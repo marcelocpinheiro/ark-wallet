@@ -1,5 +1,5 @@
 <template>
-  <div class="wallets h-screen content-center flex justify-center">
+  <div class="wallets h-full content-center flex justify-center">
     <Container :flexDirection="'col'">
       <div class="add-wallet-form-container w-full">
         <input
@@ -13,6 +13,15 @@
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-1/5 rounded-l-none"
         >
           Import <font-awesome-icon icon="cloud-download-alt" />
+        </button>
+      </div>
+      <p class="mx-5 text-center font-bold">or</p>
+      <div class="mx-5 flex justify-center">
+        <button
+          @click="generateWallet()"
+          class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg w-2/5 rounded"
+        >
+          Generate a new one <font-awesome-icon icon="plus" />
         </button>
       </div>
       <div
@@ -109,6 +118,10 @@ export default class WalletsView extends Vue {
       this.$swal("Wallet address or public key is required", "", "error");
     }
     this.isLoading = false;
+  }
+
+  generateWallet() {
+    this.$router.push({ name: "generate-wallet" });
   }
 
   findWallet() {

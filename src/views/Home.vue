@@ -1,5 +1,5 @@
 <template>
-  <div class="home h-screen flex justify-center">
+  <div class="home h-full flex justify-center">
     <Container>
       <h3>Welcome to the Ark Wallet Application</h3>
     </Container>

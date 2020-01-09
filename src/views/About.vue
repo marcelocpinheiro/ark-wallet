@@ -1,5 +1,5 @@
 <template>
-  <div class="about h-screen flex justify-center">
+  <div class="about h-full flex justify-center">
     <Container>
       <h1>This is an about page</h1>
     </Container>
