@@ -1,6 +1,7 @@
 export default class WalletsService {
   private apiUrl = process.env.VUE_APP_EXPLORER_API_URL;
   private walletsArray = [];
+  private favWallets = [];
 
   constructor() {
     this.updateWalletsArray();
@@ -8,8 +9,13 @@ export default class WalletsService {
 
   private updateWalletsArray() {
     const data = localStorage.getItem("wallets");
+    const fav = localStorage.getItem("favWallets");
     if (null !== data) {
       this.walletsArray = JSON.parse(data);
+    }
+
+    if (null !== fav) {
+      this.favWallets = JSON.parse(fav);
     }
   }
 
@@ -56,6 +62,37 @@ export default class WalletsService {
 
   public getAllLocalWallets(): Array<any> {
     return this.walletsArray;
+  }
+
+  public isWalletFav(walletAddress): Boolean {
+    if (this.favWallet.length == 0) return false;
+    return (
+      this.favWallets.filter(address => {
+        return address === walletAddress;
+      }).length > 0
+    );
+  }
+
+  public favWallet(walletAddress) {
+    if (!this.isWalletFav(walletAddress)) {
+      this.favWallets.push(walletAddress);
+      localStorage.setItem("favWallets", JSON.stringify(this.favWallets));
+      this.updateWalletsArray();
+    }
+  }
+
+  public unfavWallet(walletAddress) {
+    if (this.isWalletFav(walletAddress)) {
+      this.favWallets = this.favWallets.filter(
+        address => walletAddress !== address
+      );
+      localStorage.setItem("favWallets", JSON.stringify(this.favWallets));
+      this.updateWalletsArray();
+    }
+  }
+
+  public getFavWalletsAddresses(): Array<string> {
+    return this.favWallets;
   }
 
   public getLocalWallet(key) {

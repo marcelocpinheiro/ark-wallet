@@ -27,7 +27,13 @@
       <div
         class="title-and-search-container flex flex-row justify-between mt-10 border-b"
       >
-        <h3 class="text-lg font-bold">Imported Wallets</h3>
+        <h3 class="text-lg font-bold">
+          <select v-model="showType">
+            <option value="all">All</option>
+            <option value="fav">Favorites</option>
+          </select>
+          Imported Wallets
+        </h3>
         <input
           type="text"
           v-model="searchWallet"
@@ -78,6 +84,7 @@ export default class WalletsView extends Vue {
   private service = new WalletsService();
   private isLoading = false;
   private emptyMessage = "You didn't imported any wallets yet";
+  private showType = "all";
 
   mounted() {
     this.wallets = this.searchWallets = this.service.getAllLocalWallets();
