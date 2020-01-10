@@ -1,11 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import HomeView from "../views/Home.vue";
-import WalletsView from "@/views/Wallets.vue";
-import WalletDetailsView from "@/views/WalletDetails.vue";
-import DelegatesView from "@/views/Delegates.vue";
-import DelegateDetailsView from "@/views/DelegateDetails.vue";
-import GenerateWalletView from "@/views/GenerateWallet.vue";
 
 Vue.use(VueRouter);
 
@@ -13,32 +7,32 @@ const routes = [
   {
     path: "/",
     name: "home",
-    component: HomeView
+    component: () => import("../views/Home.vue")
   },
   {
     path: "/wallets",
     name: "wallets",
-    component: WalletsView
+    component: () => import("../views/Wallets.vue")
   },
   {
     path: "/wallet-details/:address",
     name: "wallet-details",
-    component: WalletDetailsView
+    component: () => import("../views/WalletDetails.vue")
   },
   {
     path: "/delegates",
     name: "delegates",
-    component: DelegatesView
+    component: () => import("../views/Delegates.vue")
   },
   {
     path: "/delegate-details/:username",
     name: "delegate-details",
-    component: DelegateDetailsView
+    component: () => import("../views/DelegateDetails.vue")
   },
   {
     path: "/generate-wallet",
     name: "generate-wallet",
-    component: GenerateWalletView
+    component: () => import("../views/GenerateWallet.vue")
   }
 ];
 
