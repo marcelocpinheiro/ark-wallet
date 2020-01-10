@@ -1,16 +1,20 @@
 # wallet
 
-## Project setup
+## Welcome to the Ark Wallet Application. Here's some information to run the project
+
+
+### First of all, we have to install every dependency of the project, so:
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+
+### This command will run the application locally
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### And this one compiles and minifies the code for production
 ```
 npm run build
 ```
@@ -25,5 +29,12 @@ npm run test:unit
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## TODOS
+
+Unfortunately, the application have some todos. 
+
+* PWA
+* Electron.js
+* API Toggle
+* Unit Tests
+* E2E Tests
