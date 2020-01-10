@@ -17,7 +17,7 @@
 import Vue from "vue";
 import NavbarItem from "./NavbarItem.vue";
 import { Component } from "vue-property-decorator";
-
+/* Main navbar styled component*/
 @Component({
   components: {
     NavbarItem

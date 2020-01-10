@@ -12,6 +12,8 @@
 import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 
+/* Nav Item*/
+
 @Component
 export default class NavbarItem extends Vue {
   @Prop({ default: "Label" })

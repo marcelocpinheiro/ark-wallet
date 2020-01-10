@@ -8,6 +8,9 @@
 import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 
+/*
+  Created this component to centralize the main container of the application
+*/
 @Component
 export default class Container extends Vue {
   @Prop({ default: "row" })

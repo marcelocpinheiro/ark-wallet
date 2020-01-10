@@ -32,6 +32,7 @@
 import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 
+/* Card to demonstrate the principal data of delegates */
 @Component
 export default class WalletCard extends Vue {
   @Prop({ required: true })

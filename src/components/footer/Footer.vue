@@ -6,5 +6,6 @@
 
 <script lang="ts">
 import Vue from "vue";
+/* Simple footer. I'll do here the API toggle functionality*/
 export default class Footer extends Vue {}
 </script>
