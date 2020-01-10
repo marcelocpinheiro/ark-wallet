@@ -14,7 +14,14 @@ import {
   faWallet,
   faArrowRight,
   faArrowLeft,
-  faFileInvoiceDollar
+  faFileInvoiceDollar,
+  faThumbsUp,
+  faUser,
+  faMedal,
+  faVoteYea,
+  faPlus,
+  faCheck,
+  faStar
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -28,7 +35,14 @@ library.add([
   faWallet,
   faArrowRight,
   faArrowLeft,
-  faFileInvoiceDollar
+  faFileInvoiceDollar,
+  faThumbsUp,
+  faUser,
+  faMedal,
+  faVoteYea,
+  faPlus,
+  faCheck,
+  faStar
 ]);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 

@@ -11,7 +11,7 @@ import { Component, Prop } from "vue-property-decorator";
 @Component
 export default class Container extends Vue {
   @Prop({ default: "row" })
-  flexDirection: string;
+  flexDirection!: string;
 
   private classes: Array<any> = [];
 
