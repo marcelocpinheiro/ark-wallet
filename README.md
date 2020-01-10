@@ -1,4 +1,4 @@
-# wallet
+# Ark wallet
 
 ## Welcome to the Ark Wallet Application. Here's some information to run the project
 
@@ -19,7 +19,7 @@ npm run serve
 npm run build
 ```
 
-### Run your unit tests
+### Run the unit tests
 ```
 npm run test:unit
 ```
