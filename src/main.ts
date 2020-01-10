@@ -18,7 +18,10 @@ import {
   faThumbsUp,
   faUser,
   faMedal,
-  faVoteYea
+  faVoteYea,
+  faPlus,
+  faCheck,
+  faStar
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -36,7 +39,10 @@ library.add([
   faThumbsUp,
   faUser,
   faMedal,
-  faVoteYea
+  faVoteYea,
+  faPlus,
+  faCheck,
+  faStar
 ]);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 

@@ -4,7 +4,7 @@
       Wallet's transactions <font-awesome-icon icon="file-invoice-dollar" />
     </h3>
     <div
-      class="transaction-card rounded border shadow p-3 my-2 flex flex-col cursor-pointer"
+      class="transaction-card rounded border shadow p-3 my-2 flex flex-col cursor-pointer overflow-x-auto"
       v-for="(transaction, index) in transactions"
       :key="transaction.id"
       @click="showTransactionDetails(index)"
@@ -31,6 +31,7 @@ import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 import Pagination from "../common/Pagination.vue";
 import WalletsService from "@/services/wallets.service";
+import TransactionInterface from "@/interfaces/TransactionInterface";
 
 @Component({
   components: {
@@ -44,7 +45,7 @@ export default class WalletTransactions extends Vue {
   @Prop({ default: 5 })
   limit!: Number;
 
-  private transactions = [];
+  private transactions: Array<TransactionInterface> = [];
   private metadata = {};
   private service = new WalletsService();
   private activePage = 1;
@@ -78,7 +79,7 @@ export default class WalletTransactions extends Vue {
     }
   }
 
-  showTransactionDetails(index) {
+  showTransactionDetails(index: number) {
     const t = this.transactions[index];
     const date = new Date(t.timestamp.unix * 1000);
     const formatteddate = `${date.getDate()}/${date.getMonth() +

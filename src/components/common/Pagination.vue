@@ -53,10 +53,10 @@ import { Component, Prop, Emit, Watch } from "vue-property-decorator";
 @Component
 export default class Pagination extends Vue {
   @Prop({ required: true })
-  numberOfPages!: Number;
+  numberOfPages!: number;
 
   @Prop({ required: true })
-  activePage!: Number;
+  activePage!: number;
 
   @Prop({ default: false })
   showFirstAndLastButton!: Boolean;

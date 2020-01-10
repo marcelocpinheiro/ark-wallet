@@ -1,9 +1,11 @@
 <template>
-  <div class="delegates h-screen content-center flex justify-center">
+  <div class="delegates h-full content-center flex justify-center">
     <Container :flexDirection="'col'">
       <h3 class="font-bold text-lg border-b">Delegates</h3>
 
-      <div class="delegates-list flex flex-wrap">
+      <Loading v-if="isLoading"></Loading>
+
+      <div class="delegates-list flex flex-wrap" v-if="!isLoading">
         <DelegatesCard
           v-for="delegate in delegates"
           :key="delegate.address"
@@ -46,6 +48,7 @@ export default class DelegatesView extends Vue {
   private delegates = [];
   private metadata = {};
   private activePage = 1;
+  private isLoading = true;
 
   async mounted() {
     try {
@@ -59,9 +62,11 @@ export default class DelegatesView extends Vue {
     } catch (e) {
       this.$swal("Unknown error", "Please, try again", "error");
     }
+    this.isLoading = false;
   }
 
   async handleClick(data: any) {
+    this.isLoading = true;
     const ret = await this.service.getAllDelegates(51, data);
     if (typeof ret.error !== "undefined") {
       this.$swal(ret.error, ret.message, "error");
@@ -70,6 +75,7 @@ export default class DelegatesView extends Vue {
       this.delegates = ret.data;
       this.activePage = parseInt(data);
     }
+    this.isLoading = false;
   }
 }
 </script>
