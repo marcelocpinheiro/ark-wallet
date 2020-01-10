@@ -50,6 +50,7 @@
 import Vue from "vue";
 import { Component, Prop, Emit, Watch } from "vue-property-decorator";
 
+// Component to handle many paginations on the application
 @Component
 export default class Pagination extends Vue {
   @Prop({ required: true })

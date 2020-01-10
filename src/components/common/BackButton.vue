@@ -13,6 +13,7 @@
 import Vue from "vue";
 import { Component } from "vue-property-decorator";
 
+// Common back button (link) used in details views
 @Component
 export default class BackButton extends Vue {
   back() {

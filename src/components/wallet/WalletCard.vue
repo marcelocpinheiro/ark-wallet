@@ -48,6 +48,7 @@
 import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 
+/* Wallet card showing the main information */
 @Component
 export default class WalletCard extends Vue {
   @Prop({ required: true })

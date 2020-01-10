@@ -23,6 +23,7 @@ import DelegatesCard from "@/components/delegates/DelegatesCard.vue";
 import Container from "@/components/common/Container.vue";
 import DelegatesService from "@/services/delegates.service";
 
+/* Vote card showing the main information */
 @Component({
   components: {
     DelegatesCard,

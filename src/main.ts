@@ -3,6 +3,8 @@ import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import "@/assets/css/tailwind.css";
+
+//Some import are working besides of the modules not being found by the IDE.
 import VueSweetalert2 from "vue-sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
