@@ -1,6 +1,7 @@
 <template>
   <div class="delegate-details h-full content-center flex justify-center">
     <Container :flexDirection="'col'">
+      <BackButton></BackButton>
       <h3 class="font-bold text-lg border-b">Delegate Details</h3>
       <DelegatesCard
         :rank="delegate.rank"
@@ -17,11 +18,13 @@ import { Component, Prop } from "vue-property-decorator";
 import DelegatesCard from "@/components/delegates/DelegatesCard.vue";
 import Container from "@/components/common/Container.vue";
 import DelegatesService from "@/services/delegates.service";
+import BackButton from "@/components/common/BackButton.vue";
 
 @Component({
   components: {
     DelegatesCard,
-    Container
+    Container,
+    BackButton
   }
 })
 export default class DelegateDetailsView extends Vue {

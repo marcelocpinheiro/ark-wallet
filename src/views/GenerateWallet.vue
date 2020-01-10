@@ -42,13 +42,28 @@
             <span class="font-bold">WIF:</span><br />
             {{ wallet.wif }}
           </p>
-          <button
-            class="bg-gray-300 rounded hover:bg-gray-400 font-bold p-4"
-            id="printButton"
-            @click="print()"
-          >
-            Print
-          </button>
+          <div class="flex justify-between">
+            <button
+              class="bg-gray-300 rounded hover:bg-gray-400 font-bold p-4"
+              @click="print()"
+            >
+              Print
+            </button>
+
+            <button
+              class="bg-blue-300 rounded hover:bg-blue-400 font-bold p-4"
+              @click="goTo(`/wallet-details/${wallet.address}`)"
+            >
+              Wallet details
+            </button>
+
+            <button
+              class="bg-gray-300 rounded hover:bg-gray-400 font-bold p-4"
+              @click="goTo(`/wallets`)"
+            >
+              Wallets list
+            </button>
+          </div>
         </div>
       </div>
     </Container>
@@ -104,6 +119,10 @@ export default class GenerateWalletView extends Vue {
 
   print() {
     window.print();
+  }
+
+  goTo(route: string) {
+    this.$router.push(route);
   }
 }
 </script>

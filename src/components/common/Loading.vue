@@ -1,13 +1,14 @@
 <template>
-  <div class="loading">
-    Carregando ...
+  <div class="loading mx-6">
+    <Spinner size="large"></Spinner>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import { Component, Prop } from "vue-property-decorator";
+const Spinner = require("vue-simple-spinner");
+import { Component } from "vue-property-decorator";
 
-@Component
+@Component({ components: { Spinner } })
 export default class Container extends Vue {}
 </script>

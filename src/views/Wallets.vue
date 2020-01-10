@@ -144,7 +144,7 @@ export default class WalletsView extends Vue {
     this.$router.push({ name: "generate-wallet" });
   }
 
-  isFav(walletAddress) {
+  isFav(walletAddress: string) {
     return this.service.isWalletFav(walletAddress);
   }
 

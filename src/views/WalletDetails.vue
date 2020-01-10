@@ -1,6 +1,7 @@
 <template>
   <div class="wallet-details h-full content-center flex justify-center">
     <Container :flexDirection="'col'">
+      <BackButton></BackButton>
       <div class="flex border-b justify-between align-bottom">
         <h3 class="text-lg font-bold border-b">Wallet's details</h3>
         <div class="options-container">
@@ -40,13 +41,15 @@ import WalletService from "@/services/wallets.service";
 import WalletCard from "@/components/wallet/WalletCard.vue";
 import WalletTransactions from "@/components/wallet/WalletTransactions.vue";
 import WalletVotes from "@/components/wallet/WalletVotes.vue";
+import BackButton from "@/components/common/BackButton.vue";
 
 @Component({
   components: {
     Container,
     WalletCard,
     WalletTransactions,
-    WalletVotes
+    WalletVotes,
+    BackButton
   }
 })
 export default class WalletDetailsView extends Vue {
