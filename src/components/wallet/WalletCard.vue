@@ -5,11 +5,21 @@
       title="Click to see details of this wallet"
     >
       <div class="flex flex-col ml-6">
-        <div class="wallet-address">
-          <span class="text-indigo-500" title="Wallet address"
-            ><font-awesome-icon icon="address-card"
+        <div class="wallet-address flex justify-between w-full">
+          <div class="wallet-address-text">
+            <span class="text-indigo-500" title="Wallet address"
+              ><font-awesome-icon icon="address-card"
+            /></span>
+            <span class="ml-3 font-bold">{{ address }}</span>
+          </div>
+
+          <span
+            class="fav cursor-pointer text-right"
+            v-if="isFav !== null"
+            :title="isFav ? 'Favorite Wallet' : ''"
+            :class="{ 'text-yellow-500': isFav, 'text-gray-500': !isFav }"
+            ><font-awesome-icon icon="star"
           /></span>
-          <span class="ml-3 font-bold">{{ address }}</span>
         </div>
         <div class="wallet-public-key flex">
           <span class="text-yellow-400" title="Public Key"
@@ -51,5 +61,8 @@ export default class WalletCard extends Vue {
 
   @Prop({ required: true })
   isDelegate!: string;
+
+  @Prop({ default: null })
+  isFav!: Boolean | null;
 }
 </script>

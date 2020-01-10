@@ -30,7 +30,7 @@
         <h3 class="text-lg font-bold">
           <select v-model="showType">
             <option value="all">All</option>
-            <option value="fav">Favorites</option>
+            <option value="fav">Favorite</option>
           </select>
           Imported Wallets
         </h3>
@@ -51,6 +51,7 @@
           :publicKey="wallet.publicKey"
           :address="wallet.address"
           :balance="`${wallet.balance}`"
+          :isFav="isFav(wallet.address)"
           :isDelegate="wallet.isDelegate ? 'Yes' : 'No'"
         ></WalletCard>
       </div>
@@ -92,8 +93,20 @@ export default class WalletsView extends Vue {
 
   // just to exemplify an use for watcher. Could be done with v-on:change. Not sure if this is the better possible example :p
   @Watch("searchWallet")
-  onPropertyChanged(value: string, oldValue: string) {
+  onSearchWalletChanged(value: string, oldValue: string) {
     this.findWallet();
+  }
+
+  @Watch("showType")
+  onShowTypeChanged(value: string, oldValue: string) {
+    if (value == "all") this.wallets = this.searchWallets;
+
+    if (value == "fav") {
+      const favWallets = this.service.getFavWalletsAddresses();
+      this.wallets = this.searchWallets.filter(obj => {
+        return favWallets.includes(obj.address);
+      });
+    }
   }
 
   async getWallet() {
@@ -129,6 +142,10 @@ export default class WalletsView extends Vue {
 
   generateWallet() {
     this.$router.push({ name: "generate-wallet" });
+  }
+
+  isFav(walletAddress) {
+    return this.service.isWalletFav(walletAddress);
   }
 
   findWallet() {
