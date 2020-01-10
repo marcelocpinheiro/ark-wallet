@@ -1,5 +1,7 @@
 <template>
-  <div class="votes-card rounded border shadow p-3 my-2 flex flex-col ">
+  <div
+    class="votes-card rounded border shadow p-3 my-2 flex flex-col overflow-x-auto"
+  >
     <div class="id-container">
       <span class="font-bold">ID:</span> {{ voteId }}
     </div>

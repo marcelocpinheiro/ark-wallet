@@ -6,13 +6,15 @@
           type="text"
           v-model="walletKey"
           class="p-2 w-4/5 focus:outline-none focus:shadow-outline border outline-none border-gray-300 rounded-lg rounded-r-none"
-          placeholder="Wallet address / public key"
+          placeholder="Type Wallet address/public key to import"
         />
         <button
           @click="getWallet()"
           class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg w-1/5 rounded-l-none"
         >
-          Import <font-awesome-icon icon="cloud-download-alt" />
+          <span title="Import wallet"
+            ><font-awesome-icon icon="cloud-download-alt"
+          /></span>
         </button>
       </div>
       <p class="mx-5 text-center font-bold">or</p>
@@ -32,13 +34,13 @@
             <option value="all">All</option>
             <option value="fav">Favorite</option>
           </select>
-          Imported Wallets
+          Wallets
         </h3>
         <input
           type="text"
           v-model="searchWallet"
           class="p-2 w-2/5 focus:outline-none bg-transparent"
-          placeholder="Imported Wallet search "
+          placeholder="Search"
         />
       </div>
       <div class="wallets-list mt-2" v-if="!isLoading">
@@ -104,7 +106,9 @@ export default class WalletsView extends Vue {
     if (value == "fav") {
       const favWallets = this.service.getFavWalletsAddresses();
       this.wallets = this.searchWallets.filter(obj => {
-        return favWallets.includes(obj.address);
+        if (obj) {
+          return favWallets.includes(obj.address);
+        }
       });
     }
   }

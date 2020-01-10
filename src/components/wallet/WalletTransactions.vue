@@ -4,7 +4,7 @@
       Wallet's transactions <font-awesome-icon icon="file-invoice-dollar" />
     </h3>
     <div
-      class="transaction-card rounded border shadow p-3 my-2 flex flex-col cursor-pointer"
+      class="transaction-card rounded border shadow p-3 my-2 flex flex-col cursor-pointer overflow-x-auto"
       v-for="(transaction, index) in transactions"
       :key="transaction.id"
       @click="showTransactionDetails(index)"

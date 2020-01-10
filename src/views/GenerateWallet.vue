@@ -21,7 +21,7 @@
       <div class="mx-6 p-6 text-center" v-if="null != wallet">
         <p class="font-bold">Wallet generated!</p>
 
-        <div class="mt-6 text-left">
+        <div class="mt-6 text-left overflow-x-auto">
           <p class="my-5">
             <span class="font-bold">Address:</span><br />
             {{ wallet.address }}

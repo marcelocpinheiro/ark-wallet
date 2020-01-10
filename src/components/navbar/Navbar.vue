@@ -1,5 +1,7 @@
 <template>
-  <div class="navbar w-auto flex  p-3 justify-between shadow-xl bg-gray-100">
+  <div
+    class="navbar w-full flex p-3 justify-between shadow-xl bg-gray-100 border"
+  >
     <div class="brand font-bold p-3 mr-5">
       Ark <span class="text-red-600">Wallet</span>
     </div>
@@ -7,7 +9,6 @@
       <NavbarItem :label="'Home'" :route="'/'"></NavbarItem>
       <NavbarItem :label="'Wallets'" :route="'/wallets'"></NavbarItem>
       <NavbarItem :label="'Delegates'" :route="'/delegates'"></NavbarItem>
-      <NavbarItem :label="'About'" :route="'/about'"></NavbarItem>
     </div>
   </div>
 </template>
