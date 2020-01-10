@@ -9,7 +9,10 @@
         :username="delegate.username"
         :votes="delegate.votes"
       ></DelegatesCard>
-      <div class="delegate-details flex flex-col overflow-x-auto">
+      <div
+        class="delegate-details flex flex-col overflow-x-auto"
+        v-if="!isLoading"
+      >
         <p class="my-3">
           <span class="font-bold">Produced Blocks:</span><br />
           {{ delegate.blocks.produced }}
@@ -38,6 +41,7 @@
 import Vue from "vue";
 import { Component, Prop } from "vue-property-decorator";
 import DelegatesCard from "@/components/delegates/DelegatesCard.vue";
+import DelegateInterface from "@/interfaces/DelegateInterface";
 import Loading from "@/components/common/Loading.vue";
 import Container from "@/components/common/Container.vue";
 import DelegatesService from "@/services/delegates.service";
@@ -53,7 +57,7 @@ import BackButton from "@/components/common/BackButton.vue";
 })
 export default class DelegateDetailsView extends Vue {
   private service = new DelegatesService();
-  private delegate = {};
+  private delegate: DelegateInterface = {};
   private isLoading = true;
 
   async mounted() {

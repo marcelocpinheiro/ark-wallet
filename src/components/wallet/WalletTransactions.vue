@@ -33,6 +33,7 @@ import Pagination from "../common/Pagination.vue";
 import WalletsService from "@/services/wallets.service";
 import TransactionInterface from "@/interfaces/TransactionInterface";
 
+/* Component that lists a wallet transactions and its details */
 @Component({
   components: {
     Pagination
@@ -86,6 +87,8 @@ export default class WalletTransactions extends Vue {
       1}/${date.getFullYear()} ${
       t.timestamp.human.split("T")[1].split(".")[0]
     }`;
+
+    //Ideally, I would create a modal component with a slot.
     this.$swal({
       title: "Transaction Details",
       width: 700,

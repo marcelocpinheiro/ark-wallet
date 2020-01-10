@@ -102,6 +102,7 @@ export default class GenerateWalletView extends Vue {
         );
         this.statuses[1].done = true;
         this.statuses.push({ text: "Configuring last details", done: false });
+        //extra timeout to make the "animation" undertandable
         setTimeout(() => {
           this.wallet = wallet;
           const wallets = this.service.getAllLocalWallets();

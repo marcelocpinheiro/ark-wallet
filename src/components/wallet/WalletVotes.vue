@@ -29,6 +29,7 @@ import Pagination from "../common/Pagination.vue";
 import WalletsService from "@/services/wallets.service";
 import VotesCard from "@/components/votes/VotesCard.vue";
 
+/* Component that lists a Wallet Votes */
 @Component({
   components: {
     Pagination,
