@@ -44,9 +44,9 @@
         />
       </div>
       <div class="wallets-list mt-2" v-if="!isLoading">
-        <p v-if="wallets.length == 0">{{ emptyMessage }}</p>
+        <p v-if="wallets && wallets.length == 0">{{ emptyMessage }}</p>
       </div>
-      <div v-if="wallets.length > 0 && !isLoading">
+      <div v-if="wallets && wallets.length > 0 && !isLoading">
         <WalletCard
           v-for="wallet in wallets"
           :key="wallet.address"
@@ -87,7 +87,7 @@ export default class WalletsView extends Vue {
   private searchWallet = "";
   private service = new WalletsService();
   private isLoading = false;
-  private emptyMessage = "You didn't imported any wallets yet";
+  private emptyMessage = "No Wallets found";
   private showType = "all";
 
   mounted() {
@@ -156,18 +156,22 @@ export default class WalletsView extends Vue {
   findWallet() {
     if (this.searchWallet.length > 0) {
       this.emptyMessage = `No wallets found with the search "${this.searchWallet}"`;
-      this.wallets = this.searchWallets.filter(obj => {
-        if (
-          obj.address &&
-          obj.address.toUpperCase().includes(this.searchWallet.toUpperCase())
-        )
-          return obj;
-        if (
-          obj.publicKey &&
-          obj.publicKey.toUpperCase().includes(this.searchWallet.toUpperCase())
-        )
-          return obj;
-      });
+      if (this.wallets && this.searchWallets) {
+        this.wallets = this.searchWallets.filter(obj => {
+          if (
+            obj.address &&
+            obj.address.toUpperCase().includes(this.searchWallet.toUpperCase())
+          )
+            return obj;
+          if (
+            obj.publicKey &&
+            obj.publicKey
+              .toUpperCase()
+              .includes(this.searchWallet.toUpperCase())
+          )
+            return obj;
+        });
+      }
     } else {
       this.wallets = this.searchWallets;
     }

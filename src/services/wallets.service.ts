@@ -67,16 +67,22 @@ export default class WalletsService {
   }
 
   public isWalletFav(walletAddress: string | undefined): Boolean {
-    if (!walletAddress || this.favWallet.length == 0) return false;
-    return (
-      this.favWallets.filter(address => {
+    if (!walletAddress || !this.favWallet) return false;
+
+    if (this.favWallets) {
+      const filteredArray = this.favWallets.filter(address => {
         return address === walletAddress;
-      }).length > 0
-    );
+      });
+
+      return filteredArray.length > 0;
+    }
+
+    return false;
   }
 
   public favWallet(walletAddress: string | undefined) {
     if (walletAddress && !this.isWalletFav(walletAddress)) {
+      if (!this.favWallets) this.favWallets = [];
       this.favWallets.push(walletAddress);
       localStorage.setItem("favWallets", JSON.stringify(this.favWallets));
       this.updateWalletsArray();

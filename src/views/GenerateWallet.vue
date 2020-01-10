@@ -105,7 +105,7 @@ export default class GenerateWalletView extends Vue {
         //extra timeout to make the "animation" undertandable
         setTimeout(() => {
           this.wallet = wallet;
-          const wallets = this.service.getAllLocalWallets();
+          const wallets = this.service.getAllLocalWallets() || [];
           wallets.push({
             address: this.wallet.address,
             publicKey: this.wallet.publicKey,
