@@ -36,10 +36,10 @@ export default class VotesCard extends Vue {
   };
 
   @Prop({ required: true })
-  voteId: string;
+  voteId!: string;
 
   @Prop({ required: true })
-  voteAsset: any;
+  voteAsset!: any;
 
   async mounted() {
     const data = await this.service.getDelegate(

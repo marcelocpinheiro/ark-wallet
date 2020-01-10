@@ -1,7 +1,9 @@
+import { WalletInterface } from "@/interfaces/WalletInterface";
+
 export default class WalletsService {
   private apiUrl = process.env.VUE_APP_EXPLORER_API_URL;
-  private walletsArray = [];
-  private favWallets = [];
+  private walletsArray!: Array<WalletInterface>;
+  private favWallets!: Array<string>;
 
   constructor() {
     this.updateWalletsArray();
@@ -64,8 +66,8 @@ export default class WalletsService {
     return this.walletsArray;
   }
 
-  public isWalletFav(walletAddress): Boolean {
-    if (this.favWallet.length == 0) return false;
+  public isWalletFav(walletAddress: string | undefined): Boolean {
+    if (!walletAddress || this.favWallet.length == 0) return false;
     return (
       this.favWallets.filter(address => {
         return address === walletAddress;
@@ -73,16 +75,16 @@ export default class WalletsService {
     );
   }
 
-  public favWallet(walletAddress) {
-    if (!this.isWalletFav(walletAddress)) {
+  public favWallet(walletAddress: string | undefined) {
+    if (walletAddress && !this.isWalletFav(walletAddress)) {
       this.favWallets.push(walletAddress);
       localStorage.setItem("favWallets", JSON.stringify(this.favWallets));
       this.updateWalletsArray();
     }
   }
 
-  public unfavWallet(walletAddress) {
-    if (this.isWalletFav(walletAddress)) {
+  public unfavWallet(walletAddress: string | undefined) {
+    if (walletAddress && this.isWalletFav(walletAddress)) {
       this.favWallets = this.favWallets.filter(
         address => walletAddress !== address
       );
@@ -95,14 +97,14 @@ export default class WalletsService {
     return this.favWallets;
   }
 
-  public getLocalWallet(key) {
+  public getLocalWallet(key: string) {
     const data = this.walletsArray.filter(
       obj => obj.address === key || obj.publicKey === key
     );
     return data;
   }
 
-  public setLocalWallets(array) {
+  public setLocalWallets(array: Array<WalletInterface>) {
     localStorage.setItem("wallets", JSON.stringify(array));
     this.updateWalletsArray();
   }

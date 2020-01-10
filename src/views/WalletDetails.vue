@@ -42,6 +42,7 @@ import WalletCard from "@/components/wallet/WalletCard.vue";
 import WalletTransactions from "@/components/wallet/WalletTransactions.vue";
 import WalletVotes from "@/components/wallet/WalletVotes.vue";
 import BackButton from "@/components/common/BackButton.vue";
+import { WalletInterface } from "../interfaces/WalletInterface";
 
 @Component({
   components: {
@@ -54,7 +55,7 @@ import BackButton from "@/components/common/BackButton.vue";
 })
 export default class WalletDetailsView extends Vue {
   service = new WalletService();
-  wallet = {};
+  wallet: WalletInterface = {};
   isFav: Boolean = false;
 
   mounted() {

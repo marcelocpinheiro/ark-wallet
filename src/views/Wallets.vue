@@ -71,6 +71,7 @@ import Loading from "@/components/common/Loading.vue";
 import { Component, Watch } from "vue-property-decorator";
 import WalletsService from "@/services/wallets.service";
 import WalletCard from "@/components/wallet/WalletCard.vue";
+import { WalletInterface } from "../interfaces/WalletInterface";
 
 @Component({
   components: {
@@ -80,8 +81,8 @@ import WalletCard from "@/components/wallet/WalletCard.vue";
   }
 })
 export default class WalletsView extends Vue {
-  private wallets = [];
-  private searchWallets = [];
+  private wallets: Array<WalletInterface> = [];
+  private searchWallets: Array<WalletInterface> = [];
   private walletKey = "";
   private searchWallet = "";
   private service = new WalletsService();
@@ -106,7 +107,7 @@ export default class WalletsView extends Vue {
     if (value == "fav") {
       const favWallets = this.service.getFavWalletsAddresses();
       this.wallets = this.searchWallets.filter(obj => {
-        if (obj) {
+        if (obj && obj.address) {
           return favWallets.includes(obj.address);
         }
       });

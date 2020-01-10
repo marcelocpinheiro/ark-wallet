@@ -75,7 +75,7 @@ import Vue from "vue";
 import { Component } from "vue-property-decorator";
 import Container from "@/components/common/Container.vue";
 const Spinner = require("vue-simple-spinner");
-import { Generator } from "more-entropy";
+const Entropy = require("more-entropy");
 import Cryptography from "@/utils/Cryptography";
 import { WalletInterface } from "../interfaces/WalletInterface";
 import WalletService from "@/services/wallets.service";
@@ -93,7 +93,7 @@ export default class GenerateWalletView extends Vue {
   private service = new WalletService();
 
   mounted() {
-    new Generator().generate(2048, (values: any) => {
+    new Entropy.Generator().generate(2048, (values: any) => {
       this.statuses[0].done = true;
       this.statuses.push({ text: "Creating secret keys", done: false });
       setTimeout(() => {
