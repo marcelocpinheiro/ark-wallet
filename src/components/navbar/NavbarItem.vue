@@ -16,10 +16,10 @@ import { Component, Prop } from "vue-property-decorator";
 
 @Component
 export default class NavbarItem extends Vue {
-  @Prop({ default: "Label" })
+  @Prop({ type: String, default: "Label" })
   label!: string;
 
-  @Prop({ default: "/home" })
+  @Prop({ type: String, default: "/home" })
   route!: string;
 }
 </script>

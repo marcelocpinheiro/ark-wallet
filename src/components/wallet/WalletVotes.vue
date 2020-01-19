@@ -37,10 +37,10 @@ import VotesCard from "@/components/votes/VotesCard.vue";
   }
 })
 export default class WalletVotes extends Vue {
-  @Prop({ required: true })
+  @Prop({ type: Object, required: true })
   wallet!: any;
 
-  @Prop({ default: 5 })
+  @Prop({ type: Number, default: 5 })
   limit!: Number;
 
   private votes = [];

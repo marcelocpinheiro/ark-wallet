@@ -53,19 +53,19 @@ import { Component, Prop, Emit, Watch } from "vue-property-decorator";
 // Component to handle many paginations on the application
 @Component
 export default class Pagination extends Vue {
-  @Prop({ required: true })
+  @Prop({ type: Number, required: true })
   numberOfPages!: number;
 
-  @Prop({ required: true })
+  @Prop({ type: Number, required: true })
   activePage!: number;
 
-  @Prop({ default: false })
+  @Prop({ type: Boolean, default: false })
   showFirstAndLastButton!: Boolean;
 
-  @Prop({ default: false })
+  @Prop({ type: Boolean, default: false })
   showPreviousAndNextButton!: Boolean;
 
-  @Prop({ default: true })
+  @Prop({ type: Boolean, default: true })
   showNumberButton!: Boolean;
 
   private firstNumber = 0;

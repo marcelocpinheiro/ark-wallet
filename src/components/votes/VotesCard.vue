@@ -41,10 +41,10 @@ export default class VotesCard extends Vue {
     username: "Loading ..."
   };
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   voteId!: string;
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   voteAsset!: any;
 
   async mounted() {

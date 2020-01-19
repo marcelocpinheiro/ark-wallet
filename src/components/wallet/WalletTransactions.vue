@@ -41,10 +41,10 @@ import TransactionInterface from "@/interfaces/TransactionInterface";
   }
 })
 export default class WalletTransactions extends Vue {
-  @Prop({ required: true })
+  @Prop({ type: Object, required: true })
   wallet!: any;
 
-  @Prop({ default: 5 })
+  @Prop({ type: Number, default: 5 })
   limit!: Number;
 
   private transactions: Array<TransactionInterface> = [];

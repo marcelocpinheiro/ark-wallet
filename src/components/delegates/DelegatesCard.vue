@@ -37,13 +37,13 @@ import { Component, Prop } from "vue-property-decorator";
 /* Card to demonstrate the principal data of delegates */
 @Component
 export default class WalletCard extends Vue {
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   username!: string;
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   rank!: string;
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   votes!: string;
 }
 </script>

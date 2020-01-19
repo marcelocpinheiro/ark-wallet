@@ -51,19 +51,19 @@ import { Component, Prop } from "vue-property-decorator";
 /* Wallet card showing the main information */
 @Component
 export default class WalletCard extends Vue {
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   address!: string;
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   publicKey!: string;
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   balance!: string;
 
-  @Prop({ required: true })
+  @Prop({ type: String, required: true })
   isDelegate!: string;
 
-  @Prop({ default: null })
+  @Prop({ type: Boolean, default: null })
   isFav!: Boolean | null;
 }
 </script>
