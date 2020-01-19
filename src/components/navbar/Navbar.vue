@@ -6,9 +6,9 @@
       Ark <span class="text-red-600">Wallet</span>
     </div>
     <div class="items-container flex flex-row">
-      <NavbarItem :label="'Home'" :route="'/'"></NavbarItem>
-      <NavbarItem :label="'Wallets'" :route="'/wallets'"></NavbarItem>
-      <NavbarItem :label="'Delegates'" :route="'/delegates'"></NavbarItem>
+      <NavbarItem :label="'Home'" :route="'/'" />
+      <NavbarItem :label="'Wallets'" :route="'/wallets'" />
+      <NavbarItem :label="'Delegates'" :route="'/delegates'" />
     </div>
   </div>
 </template>

@@ -55,10 +55,10 @@
           :balance="`${wallet.balance}`"
           :isFav="isFav(wallet.address)"
           :isDelegate="wallet.isDelegate ? 'Yes' : 'No'"
-        ></WalletCard>
+        />
       </div>
       <div class="wallets-list-loading mt-2" v-if="isLoading">
-        <Loading></Loading>
+        <Loading />
       </div>
     </Container>
   </div>

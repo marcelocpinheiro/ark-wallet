@@ -1,8 +1,8 @@
 <template>
   <div id="app w-full">
-    <Navbar></Navbar>
+    <Navbar />
     <router-view />
-    <Footer></Footer>
+    <Footer />
   </div>
 </template>
 

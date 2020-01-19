@@ -1,14 +1,14 @@
 <template>
   <div class="delegate-details h-full content-center flex justify-center">
     <Container :flexDirection="'col'">
-      <BackButton></BackButton>
+      <BackButton />
       <h3 class="font-bold text-lg border-b">Delegate Details</h3>
-      <Loading v-if="isLoading"></Loading>
+      <Loading v-if="isLoading" />
       <DelegatesCard
         :rank="delegate.rank"
         :username="delegate.username"
         :votes="delegate.votes"
-      ></DelegatesCard>
+      />
       <div
         class="delegate-details flex flex-col overflow-x-auto"
         v-if="!isLoading"

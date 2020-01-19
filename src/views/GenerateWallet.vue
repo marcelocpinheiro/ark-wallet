@@ -5,7 +5,7 @@
 
       <div class="mx-6 p-6 text-center" v-if="null == wallet">
         <ul>
-          <Spinner size="small"></Spinner>
+          <Spinner size="small" />
           <li
             v-for="status in statuses"
             :key="status.text"

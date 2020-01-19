@@ -23,7 +23,7 @@
       @page-click="handleClick"
       :showFirstAndLastButton="true"
       :showPreviousAndNextButton="true"
-    ></Pagination>
+    />
   </div>
 </template>
 

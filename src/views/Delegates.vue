@@ -3,7 +3,7 @@
     <Container :flexDirection="'col'">
       <h3 class="font-bold text-lg border-b">Delegates</h3>
 
-      <Loading v-if="isLoading"></Loading>
+      <Loading v-if="isLoading" />
 
       <div class="delegates-list flex flex-wrap" v-if="!isLoading">
         <DelegatesCard
@@ -12,7 +12,7 @@
           :username="delegate.username"
           :rank="delegate.rank"
           :votes="delegate.votes"
-        ></DelegatesCard>
+        />
       </div>
 
       <Pagination
@@ -21,7 +21,7 @@
         @page-click="handleClick"
         :showFirstAndLastButton="true"
         :showPreviousAndNextButton="true"
-      ></Pagination>
+      />
     </Container>
   </div>
 </template>

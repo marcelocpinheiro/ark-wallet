@@ -9,7 +9,7 @@
       :key="vote.id"
       :voteId="vote.id"
       :voteAsset="vote.asset"
-    ></VotesCard>
+    />
 
     <Pagination
       v-if="metadata.pageCount > 1"
@@ -18,7 +18,7 @@
       @page-click="handleClick"
       :showFirstAndLastButton="true"
       :showPreviousAndNextButton="true"
-    ></Pagination>
+    />
   </div>
 </template>
 

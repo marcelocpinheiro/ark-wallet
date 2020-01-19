@@ -1,6 +1,6 @@
 <template>
   <div class="loading mx-6">
-    <Spinner size="large"></Spinner>
+    <Spinner size="large" />
   </div>
 </template>
 

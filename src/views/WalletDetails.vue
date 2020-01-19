@@ -1,7 +1,7 @@
 <template>
   <div class="wallet-details h-full content-center flex justify-center">
     <Container :flexDirection="'col'">
-      <BackButton></BackButton>
+      <BackButton />
       <div class="flex border-b justify-between align-bottom">
         <h3 class="text-lg font-bold border-b">Wallet's details</h3>
         <div class="options-container">
@@ -25,13 +25,12 @@
         :publicKey="wallet.publicKey"
         :balance="wallet.balance"
         :isDelegate="wallet.isDelegate ? 'Yes' : 'No'"
-      >
-      </WalletCard>
+      />
       <WalletTransactions
-        v-if="wallet !== null"
+        v-if="wallet.address !== undefined"
         :wallet="wallet"
-      ></WalletTransactions>
-      <WalletVotes v-if="wallet !== null" :wallet="wallet"></WalletVotes>
+      />
+      <WalletVotes v-if="wallet.address !== undefined" :wallet="wallet" />
     </Container>
   </div>
 </template>
@@ -58,7 +57,7 @@ import { WalletInterface } from "../interfaces/WalletInterface";
 })
 export default class WalletDetailsView extends Vue {
   service = new WalletService();
-  wallet: WalletInterface | null = null;
+  wallet: WalletInterface = {};
   isFav: Boolean = false;
 
   mounted() {
@@ -77,8 +76,8 @@ export default class WalletDetailsView extends Vue {
       confirmButtonText: "Yes, delete it!"
     }).then(result => {
       const wallets = this.service.getAllLocalWallets();
-      const newWalletsArray = wallets.filter(
-        obj => obj.address != this.wallet.address
+      const newWalletsArray = wallets.filter(obj =>
+        obj.address != this.wallet ? this.wallet.address : ""
       );
       this.service.setLocalWallets(newWalletsArray);
       if (result.value) {
