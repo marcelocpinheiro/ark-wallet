@@ -17,6 +17,7 @@
       </div>
     </div>
     <Pagination
+      v-if="transactions.length > 0"
       :numberOfPages="metadata.pageCount"
       :activePage="activePage"
       @page-click="handleClick"

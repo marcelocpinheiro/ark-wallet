@@ -27,8 +27,11 @@
         :isDelegate="wallet.isDelegate ? 'Yes' : 'No'"
       >
       </WalletCard>
-      <WalletTransactions :wallet="wallet"></WalletTransactions>
-      <WalletVotes :wallet="wallet"></WalletVotes>
+      <WalletTransactions
+        v-if="wallet !== null"
+        :wallet="wallet"
+      ></WalletTransactions>
+      <WalletVotes v-if="wallet !== null" :wallet="wallet"></WalletVotes>
     </Container>
   </div>
 </template>
@@ -55,7 +58,7 @@ import { WalletInterface } from "../interfaces/WalletInterface";
 })
 export default class WalletDetailsView extends Vue {
   service = new WalletService();
-  wallet: WalletInterface = {};
+  wallet: WalletInterface | null = null;
   isFav: Boolean = false;
 
   mounted() {
