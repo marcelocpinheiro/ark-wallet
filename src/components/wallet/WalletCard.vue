@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/wallet-details/${address}`">
+  <router-link :to="{ name: 'wallet-details', params: { address: address } }">
     <div
       class="wallet flex flex-row p-4 border rounded hover:bg-gray-100 cursor-pointer my-2 shadow overflow-x-auto"
       title="Click to see details of this wallet"

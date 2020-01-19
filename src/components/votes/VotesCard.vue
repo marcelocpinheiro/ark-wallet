@@ -8,9 +8,14 @@
     <div class="delegate-container cursor-pointer">
       <span class="font-bold">Delegate:</span>
       <span class="text-blue-600 ml-3"
-        ><router-link :to="`/delegate-details/${delegate.username}`">{{
-          delegate.username
-        }}</router-link></span
+        ><router-link
+          :to="{
+            name: 'delegate-details',
+            params: { username: delegate.username }
+          }"
+        >
+          {{ delegate.username }}
+        </router-link></span
       >
     </div>
   </div>
